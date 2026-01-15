@@ -1,0 +1,15 @@
+{
+  "total_licenses": 718,
+  "osi_approved_count": 148,
+  "license_type_distribution": {
+    "other": 567,
+    "copyleft": 78,
+    "permissive": 73
+  },
+  "osi_status_distribution": {
+    "not-osi-approved": 570,
+    "osi-approved": 148
+  },
+  "avg_text_length": 8637.175487465182,
+  "avg_cleaned_text_length": 5043.484679665738
+}
