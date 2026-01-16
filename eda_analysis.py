@@ -331,7 +331,7 @@ class LicenseEDA:
         bp = ax.boxplot(data_to_plot, labels=['Raw License\nText', 'Processed\nRaw Text', 'Processed\nCleaned Text'],
                         patch_artist=True)
         
-        colors = ['#e74c3c', '#f39c12', '#27ae60']
+        colors = ['#e74c9c', '#f39c12', '#27ae60']
         for patch, color in zip(bp['boxes'], colors):
             patch.set_facecolor(color)
             patch.set_alpha(0.7)
