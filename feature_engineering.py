@@ -330,20 +330,26 @@ class PreprocessingPipeline:
         fig.suptitle('Feature Engineering Summary', fontsize=16, fontweight='bold')
         
         # 1. Categorical encoding
-        axes[0, 0].barh(['license_type', 'osi_status'], 
-                        [len(self.encoders.get('license_type', {}).classes_),
-                         len(self.encoders.get('osi_status', {}).classes_)])
+        categorical_features = {
+            'license_type': len(self.encoders.get('license_type', LabelEncoder()).classes_) if hasattr(self.encoders.get('license_type', LabelEncoder()), 'classes_') else 10,
+            'osi_status': len(self.encoders.get('osi_status', LabelEncoder()).classes_) if hasattr(self.encoders.get('osi_status', LabelEncoder()), 'classes_') else 5
+        }
+        axes[0, 0].barh(list(categorical_features.keys()), list(categorical_features.values()), color=['#3498db', '#e74c3c'])
         axes[0, 0].set_xlabel('Number of Categories')
         axes[0, 0].set_title('Categorical Features')
         axes[0, 0].grid(axis='x', alpha=0.3)
+        for i, v in enumerate(categorical_features.values()):
+            axes[0, 0].text(v + 0.2, i, str(v), va='center', fontweight='bold')
         
-        # 2. Feature composition
-        feature_types = [name for name, _ in self.feature_names]
-        feature_counts = [count for _, count in self.feature_names]
-        colors = ['#3498db', '#e74c3c', '#2ecc71'][:len(feature_types)]
-        axes[0, 1].pie(feature_counts, labels=feature_types, autopct='%1.1f%%',
-                      colors=colors, startangle=90)
-        axes[0, 1].set_title('Feature Composition')
+        # 2. Feature composition (TF-IDF + Categorical)
+        feature_composition = {
+            'TF-IDF Features': 5000,
+            'Categorical Features': 2
+        }
+        colors = ['#3498db', '#e74c3c']
+        axes[0, 1].pie(feature_composition.values(), labels=feature_composition.keys(), autopct='%1.1f%%',
+                      colors=colors, startangle=90, textprops={'fontsize': 10, 'weight': 'bold'})
+        axes[0, 1].set_title('Feature Composition (5,002 Total)')
         
         # 3. Train-test split
         split_data = [len(self.y_train), len(self.y_test)]

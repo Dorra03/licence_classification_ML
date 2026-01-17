@@ -154,6 +154,27 @@ README_*.txt
 *.txt
 !requirements.txt
 
+# Markdown files
+*.md
+*.MD
+
+# Image files
+*.png
+*.PNG
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.gif
+*.GIF
+*.bmp
+*.BMP
+
+# Log files
+*.log
+logs/
+*.log.*
+
 # Session and temporary documentation
 SESSION_LOG.txt
 CURRENT_SESSION_LOG.txt
@@ -171,6 +192,14 @@ GITHUB_*.txt
 FEATURE_*.txt
 LICENSE_SEARCH_*.txt
 IMPLEMENTATION_*.txt
+
+# Data files
+*.csv
+*.json
+*.npz
+*.npy
+data/raw/
+data/interim/
 
 # OS specific
 Thumbs.db

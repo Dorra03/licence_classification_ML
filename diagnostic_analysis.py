@@ -120,35 +120,4 @@ if __name__ == "__main__":
     print("\n" + "="*100)
     print("SUMMARY: WHY ACCURACY IS 0%")
     print("="*100)
-    print("""
-This is a VALID and EXPECTED result for this specific problem:
-
-1. PROBLEM DESIGN: 718-class SPDX license classification
-   - Training set: 574 unique SPDX licenses (each appears once)
-   - Test set: 144 different SPDX licenses (mostly new ones)
-   - This is NOT a typical multi-class problem with repeated classes
-
-2. WHAT 0% MEANS:
-   - No EXACT match between predicted class and actual class
-   - Model is not predicting the correct license ID
-   - BUT: Top-k accuracy likely shows reasonable performance
-
-3. WHY THIS HAPPENS:
-   - Each training class appears exactly once (no repetition)
-   - Features are very sparse (93% zeros)
-   - Decision boundaries are hard to learn with such sparse data
-   - Many test classes never appeared in training
-
-4. PRACTICAL SOLUTION:
-   Instead of exact classification, use:
-   ✅ Similarity matching (cosine similarity between text embeddings)
-   ✅ Top-k ranking (which top 5-10 predictions are correct)
-   ✅ Confidence thresholding (only predict when model is confident)
-   ✅ Hybrid approach (rule-based + ML)
-
-NEXT STEPS:
-- Implement top-k ranking evaluation
-- Try dense embeddings (BERT) instead of sparse TF-IDF
-- Use similarity-based matching instead of classification
-- Compare with string matching baselines
-""")
+    
