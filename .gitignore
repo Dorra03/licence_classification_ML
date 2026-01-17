@@ -147,6 +147,24 @@ dmypy.json
 *.temp
 .tmp/
 
+# Session and temporary documentation
+SESSION_LOG.txt
+CURRENT_SESSION_LOG.txt
+*_SESSION*.txt
+*_SUMMARY.txt
+*_SUMMARY.md
+QUICK_*.txt
+QUICK_*.md
+SYSTEM_*.md
+SYSTEM_*.txt
+*_ANALYSIS.md
+*_REPORT.md
+*_GUIDE.md
+GITHUB_*.txt
+FEATURE_*.txt
+LICENSE_SEARCH_*.txt
+IMPLEMENTATION_*.txt
+
 # OS specific
 Thumbs.db
 .DS_Store
