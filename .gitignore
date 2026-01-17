@@ -147,6 +147,13 @@ dmypy.json
 *.temp
 .tmp/
 
+# Documentation files (README and .txt)
+README.md
+README_*.md
+README_*.txt
+*.txt
+!requirements.txt
+
 # Session and temporary documentation
 SESSION_LOG.txt
 CURRENT_SESSION_LOG.txt
